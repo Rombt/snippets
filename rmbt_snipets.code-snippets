@@ -23,7 +23,7 @@
   // 			 "snippet": "console.log(${TM_SELECTED_TEXT}$1)$2;"
   // 		}
   //   }
-  //@note
+
   "array element": {
     "scope": "php, plaintext, html",
     "prefix": "ae",
@@ -252,14 +252,17 @@
       "<header>",
       "<h3><?php echo rmbt_get_redux_field('rmbt-${1}_article-title-${2}') ?></h3>",
       "</header>",
-      "<div class=\"rmbt-${1}__body\">",
+      "<div class=\"rmbt-${1}__article-body\">",
       "<div class=\"wrap-img rmbt-${1}__img\">",
-      "<?php rmbt_redux_img(\\$args['rmbt-${1}_article-img-id-${2}'], \\$args['rmbt-${1}_article-img-alt-${2}']) ?>",
+      "<?php rmbt_redux_img('rmbt-${1}_article-img-id-${2}', 'rmbt-${1}_article-img-alt-${2}') ?>",
+      "</div>",
+      "<div class=\"rmbt-${1}__article-text\">",
+      "<?php rmbt_get_redux_field('rmbt-${1}__article-text-${2}') ?>",
       "</div>",
       "</div>",
       "<footer>",
       "<a href=\"#\">",
-      "{3:read more}",
+      "${3:read more}",
       "<svg>",
       "<use xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#${4}\"></use>",
       "</svg>",
@@ -298,28 +301,7 @@
     "description": "get_template_part() ful img"
   },
 
-  "__section with template_part": {
-    "scope": "php, html",
-    "prefix": "sec",
-    "body": [
-      "<div class=\"wrapper-section\">",
-      "<div class=\"rmbt-full-width\">",
-      "<section class=\"rmbt-container rmbt-${1}\">",
-      "<h2><?php echo rmbt_get_redux_field('${1}_section-title') ?></h2>",
-      "<div class=\"rmbt-${1}__row\">",
-      "<?php get_template_part('template-parts/components/${3}', null, [",
-      "'${4:title}' => rmbt_get_redux_field('${1}_article-title'),",
-      "'${5:id-img}' => '${1}_img-${6}',",
-      "'${7:alt-img}' => rmbt_get_redux_field('${1}_alt-${8}'),",
-      "]); ?>",
-      "${0}",
-      "</div>",
-      "</section>",
-      "</div>",
-      "</div>"
-    ],
-    "description": "section"
-  },
+    //@note
 
   "redux section with img": {
     "scope": "php",
@@ -369,7 +351,7 @@
        "'default' => esc_html__('${7}', 'rmbt_impex'),",
       "),",
       			"array(",
-				"'id' => 'rmbt-${1}_article-text',",
+				"'id' => 'rmbt-${1}_article-text-${4}',",
 				"'type' => 'text',",
 				"'title' => esc_html__('Text of ${3} article', 'rmbt_impex'),",
 			"),",
