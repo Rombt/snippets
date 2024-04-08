@@ -150,6 +150,26 @@
     ],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
+    "row-flex()": {
+    "scope": "less, sass",
+    "prefix": ".rf",
+    "body": [".row-flex();"],
+    "description": "row-flex()"
+  },
+
+  ".col();": {
+    "scope": "less, sass",
+    "prefix": "col",
+    "body": [".col();"],
+    "description": ".col();"
+  },
+
+  ".size();": {
+    "scope": "less, sass",
+    "prefix": "sz",
+    "body": [".size(${1});"],
+    "description": ".size();"
+  },
   "burger menu": {
     "scope": "php, html",
     "prefix": "bm",
@@ -237,6 +257,18 @@
     ],
     "description": "font family"
   },
+  
+  "get_template_part() simple": {
+    "scope": "php, html",
+    "prefix": "gt",
+    "body": [
+      "<?php get_template_part('template-parts/components/${1}'); ?>",
+      "${0}"
+    ],
+    "description": "get_template_part() simple"
+  },
+
+    //@note
 
   "section with article": {
     "scope": "php, html",
@@ -277,31 +309,54 @@
     "description": "section"
   },
 
-  "get_template_part() simple": {
-    "scope": "php, html",
-    "prefix": "gt",
-    "body": [
-      "<?php get_template_part('template-parts/components/${1}'); ?>",
-      "${0}"
-    ],
-    "description": "get_template_part() simple"
-  },
 
   "get_template_part() full img": {
     "scope": "php, html",
     "prefix": "gtfi",
     "body": [
       "<?php get_template_part('template-parts/components/${1}', null, [",
-      "'${2:title}' => rmbt_get_redux_field('${1}_article-title-${3}'),",
-      "'${4:id-img}' => '${1}_img-${3}',",
-      "'${5:alt-img}' => rmbt_get_redux_field('${1}_alt-${3}'),",
+      "'${3:title}' => rmbt_get_redux_field('rmbt-${1}_article-title-${2}'),",
+      "'${4:text}' => rmbt_get_redux_field('rmbt-${1}_article-text-${2}'),",
+      "'${5:id-img}' => rmbt_get_redux_field('rmbt-${1}_article-img-id-${2}'),",
+      "'${6:alt-img}' => rmbt_get_redux_field('rmbt-${1}_article-img-alt-${2}'),",
       "]); ?>",
       "${0}"
     ],
     "description": "get_template_part() ful img"
   },
 
-    //@note
+
+  "card block by get_template_part()": {
+    "scope": "php, html",
+    "prefix": "cb_gtp",
+    "body": [
+"<article class=\"rmbt-${1}__col\">",
+   "<header>",
+      "<h3> <?php echo \\$args['${2:title}'] ?></h3>",
+   "</header>",
+   "<div class=\"rmbt-${1}__article-body\">",
+      "<div class=\"wrap-img rmbt-${1}__img\">",
+         "<?php rmbt_redux_img(\\$args['${3:id-img}'], \\$args['${4:alt-img}']) ?>",
+      "</div>",
+      "<div class=\"rmbt-${1}__article-text\">",
+         "<?php echo \\$args['${5:text}'] ?>",
+      "</div>",
+   "</div>",
+   "<footer>",
+      "<a href=\"#\">",
+         "read more",
+         "<svg>",
+            "<use xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#5}\"></use>",
+         "</svg>",
+      "</a>",
+   "</footer>",
+"</article>",
+    ],
+    "description": "card block"
+  },
+
+
+
 
   "redux section with img": {
     "scope": "php",
@@ -366,24 +421,5 @@
     "description": "section"
   },
 
-  "row-flex()": {
-    "scope": "less, sass",
-    "prefix": ".rf",
-    "body": [".row-flex();"],
-    "description": "row-flex()"
-  },
 
-  ".col();": {
-    "scope": "less, sass",
-    "prefix": "col",
-    "body": [".col();"],
-    "description": ".col();"
-  },
-
-  ".size();": {
-    "scope": "less, sass",
-    "prefix": "sz",
-    "body": [".size(${1});"],
-    "description": ".size();"
-  }
 }
