@@ -97,7 +97,7 @@
   },
   "wrap-img": {
     "scope": "php, plaintext, html",
-    "prefix": "wi",
+    "prefix": "wrap-img",
     "body": [
       "<div class=\"wrap-img\">",
       "<img src=\"$1\" alt=\"$2\">",
@@ -150,21 +150,21 @@
     ],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
-    "row-flex()": {
+  "row-flex()": {
     "scope": "less, sass",
     "prefix": ".rf",
     "body": [".row-flex();"],
     "description": "row-flex()"
   },
 
-  ".col();": {
+  "col();": {
     "scope": "less, sass",
     "prefix": "col",
     "body": [".col();"],
     "description": ".col();"
   },
 
-  ".size();": {
+  "size();": {
     "scope": "less, sass",
     "prefix": "sz",
     "body": [".size(${1});"],
@@ -238,7 +238,9 @@
       "position: absolute;",
       "left: ${1:50%};",
       "top: ${2:50%};",
-      "transform: translate(${3:-50%},${4:-50%});"
+      "transform: translate(${3:-50%},${4:-50%});",
+      "width: ${5:100px};",
+      "height: ${6:100px};",
     ],
     "description": "position abs elements"
   },
@@ -278,6 +280,7 @@
       "<div class=\"rmbt-full-width\">",
       "<section class=\"rmbt-container rmbt-${1}\">",
       "<h2><?php echo rmbt_get_redux_field('rmbt-${1}_section-title') ?></h2>",
+      "<!-- <?php // get_template_part('template-parts/components/section-title', null, ['title' => rmbt_get_redux_field('rmbt-${1}_section-title')]); ?> -->",
       "<p><?php echo rmbt_get_redux_field('rmbt-${1}_section-text') ?></p>",
       "<div class=\"rmbt-${1}__row\">",
       "<article class=\"rmbt-${1}__col\">",
@@ -325,38 +328,34 @@
     "description": "get_template_part() ful img"
   },
 
-
   "card block by get_template_part()": {
     "scope": "php, html",
     "prefix": "cb_gtp",
     "body": [
-"<article class=\"rmbt-${1}__col\">",
-   "<header>",
-      "<h3> <?php echo \\$args['${2:title}'] ?></h3>",
-   "</header>",
-   "<div class=\"rmbt-${1}__article-body\">",
-      "<div class=\"wrap-img rmbt-${1}__img\">",
-         "<?php rmbt_redux_img(\\$args['${3:id-img}'], \\$args['${4:alt-img}']) ?>",
-      "</div>",
-      "<div class=\"rmbt-${1}__article-text\">",
-         "<?php echo \\$args['${5:text}'] ?>",
-      "</div>",
-   "</div>",
-   "<footer>",
-      "<a href=\"#\">",
-         "read more",
-         "<svg>",
-            "<use xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#5}\"></use>",
-         "</svg>",
-      "</a>",
-   "</footer>",
-"</article>",
+      "<article class=\"rmbt-${1}-article\">",
+        "<header>",
+            "<h3> <?php echo \\$args['${2:title}'] ?></h3>",
+        "</header>",
+        "<div class=\"rmbt-${1}-article__body\">",
+            "<div class=\"wrap-img rmbt-${1}-article__img\">",
+              "<?php rmbt_redux_img(\\$args['${3:id-img}'], \\$args['${4:alt-img}']) ?>",
+            "</div>",
+            "<div class=\"rmbt-${1}-article__text\">",
+              "<?php echo \\$args['${5:text}'] ?>",
+            "</div>",
+        "</div>",
+        "<footer>",
+            "<a href=\"#\">",
+              "read more",
+              "<svg>",
+                  "<use xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#${6}\"></use>",
+              "</svg>",
+            "</a>",
+        "</footer>",
+      "</article>",
     ],
     "description": "card block"
   },
-
-
-
 
   "redux section with img": {
     "scope": "php",
@@ -421,5 +420,40 @@
     "description": "section"
   },
 
+    "redux img field": {
+    "scope": "php, html",
+    "prefix": "redux_img_field",
+    "body": [
+      "array(",
+      "'id' => 'rmbt-${1}_img-id-${2}',",
+      "'type' => 'media',",
+      "'url' => true,",
+      "'title' => esc_html__('Picture for ${1} article', 'rmbt_impex'),",
+      "'compiler' => 'true',",
+      "'preview_size' => 'full',",
+      "'default' => array(",
+      "'url' => '/assets/img/${3:no-image.jpg}'",
+      "),",
+      "),",
+      "array(",
+      "'id' => 'rmbt-${1}_img-alt-${2}',",
+      "'type' => 'text',",
+      "'title' => esc_html__('Image description for ${1}', 'rmbt_impex'),",
+       "'default' => esc_html__('${4}', 'rmbt_impex'),",
+      "),",
+    ],
+    "description": "rmbt_redux_img()"
+  },
+  
+    "wrap img from redux": {
+    "scope": "php, html",
+    "prefix": "wrap-img-redux",
+    "body": [
+      "<div class=\"wrap-img\">",
+      "<?php rmbt_redux_img('rmbt-${1}_img-id-${2}', 'rmbt-${1}_img-alt-${2}') ?>",
+      "</div>"
+    ],
+    "description": "rmbt_redux_img()"
+  },
 
 }
