@@ -252,6 +252,7 @@
       "font-size: 24px;",
       "font-family: Poppins;",
       "font-weight: 400;",
+      "color: #000000;",
       "text-align: center;",
       "text-transform: uppercase;",
       "vertical-align: middle;",
@@ -421,7 +422,7 @@
     "description": "section"
   },
 
-    "redux img field": {
+  "redux img field": {
     "scope": "php, html",
     "prefix": "redux_img_field",
     "body": [
@@ -446,7 +447,7 @@
     "description": "rmbt_redux_img()"
   },
   
-    "wrap img from redux": {
+  "wrap img from redux": {
     "scope": "php, html",
     "prefix": "wrap-img-redux",
     "body": [
@@ -455,6 +456,24 @@
       "</div>"
     ],
     "description": "rmbt_redux_img()"
+  },
+  
+  "menu_wp": {
+    "scope": "php, html",
+    "prefix": "menu_wp",
+    "body": [
+      "<?php if (has_nav_menu('${1}')) { ?>",
+        "<div class=\"cont-${2:horisont}-menu\">",
+          "<div class=\"menu-icon\"><span></span></div>",
+        "<?php wp_nav_menu(",
+          "array(",
+            "'theme_location' => '${1}',",
+            "'container' => 'nav',",
+          ")",
+        ");",
+      "} ?>",
+    ],
+    "description": "menu_wp"
   },
 
 }
