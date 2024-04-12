@@ -474,6 +474,15 @@
       "} ?>",
     ],
     "description": "menu_wp"
+  },,
+  
+  "redux_field()": {
+    "scope": "php, html",
+    "prefix": "redux_field()",
+    "body": [
+      "<?php rmbt_get_redux_field('${1}', ${2:1})?>",
+    ],
+    "description": "menu_wp"
   },
 
 }
