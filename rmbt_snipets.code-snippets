@@ -321,7 +321,7 @@
       "<?php get_template_part('template-parts/components/${1}', null, [",
       "'${3:title}' => rmbt_get_redux_field('rmbt-${1}_article-title-${2}'),",
       "'${4:text}' => rmbt_get_redux_field('rmbt-${1}_article-text-${2}'),",
-      "'${5:id-img}' => rmbt_get_redux_field('rmbt-${1}_article-img-id-${2}'),",
+      "'${5:id-img}' => 'rmbt-${1}_article-img-id-${2}',",
       "'${6:alt-img}' => rmbt_get_redux_field('rmbt-${1}_article-img-alt-${2}'),",
       "]); ?>",
       "${0}"
@@ -408,7 +408,7 @@
       "'id' => 'rmbt-${1}_article-img-alt-${4}',",
       "'type' => 'text',",
       "'title' => esc_html__('Image description of ${3} article', 'rmbt_impex'),",
-       "'default' => esc_html__('${7}', 'rmbt_impex'),",
+       "'default' => esc_html__('${7} image', 'rmbt_impex'),",
       "),",
 
       "/*------------------  the end of ${3} article block -----------------*/",
@@ -474,7 +474,7 @@
       "} ?>",
     ],
     "description": "menu_wp"
-  },,
+  },
   
   "redux_field()": {
     "scope": "php, html",
