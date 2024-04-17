@@ -480,7 +480,15 @@
     "scope": "php, html",
     "prefix": "redux_field()",
     "body": [
-      "<?php rmbt_get_redux_field('${1}', ${2:1})?>",
+      "<?php echo rmbt_get_redux_field('${1}', ${2:1})?>",
+    ],
+    "description": "menu_wp"
+  },
+  "block of tests": {
+    "scope": "php, html",
+    "prefix": "test block",
+    "body": [
+      "<div class=\"test-block\">${1}</div>",
     ],
     "description": "menu_wp"
   },
