@@ -132,7 +132,7 @@
   "padding 0": {
     "scope": "css, less",
     "prefix": "p0",
-    "body": ["padding: ${1:0}px ${2:0}px ${3:0}px ${4:0}px; ", "$5"],
+    "body": ["padding: ${1:10}px ${2:10}px ${3:10}px ${4:10}px; ", "$5"],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
   "margin 0": {
@@ -484,6 +484,31 @@
     ],
     "description": "menu_wp"
   },
+
+  "document.createElement": {
+    "scope": "javascript,typescript",
+    "prefix": "dc",
+    "body": [
+      "document.createElement('${1}');",
+    ],
+    "description": "document.createElement()"
+  },
+  
+  "flex: 0 1 auto;": {
+    "scope": "less, css, sass",
+    "prefix": "flex",
+    "body": [
+      "flex: ${1:grow} ${2:shrink} ${3:basis};",
+    ],
+    "description": "document.createElement()"
+  },
+
+
+
+
+
+
+
   "block of tests": {
     "scope": "php, html",
     "prefix": "test block",
