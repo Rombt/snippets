@@ -166,7 +166,7 @@
 
   "size();": {
     "scope": "less, sass",
-    "prefix": "sz",
+    "prefix": ".size",
     "body": [".size(${1});"],
     "description": ".size();"
   },
@@ -508,7 +508,7 @@
     "scope": "php, html",
     "prefix": "test block",
     "body": [
-      "<div class=\"test-block\">${1}</div>",
+      "<div class=\"test-block\"><?php ${1} ?></div>",
     ],
     "description": "menu_wp"
   },
