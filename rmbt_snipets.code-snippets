@@ -508,7 +508,11 @@
     "scope": "php, html",
     "prefix": "test block",
     "body": [
-      "<div class=\"test-block\"><?php ${1} ?></div>",
+      "<div class=\"test-block\">",
+      "<?php", 
+      "${1}",
+      "?>",
+      "</div>",
     ],
     "description": "menu_wp"
   },
