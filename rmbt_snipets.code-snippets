@@ -309,9 +309,59 @@
   },
 
 
-  "get_template_part() full img": {
+  "get_template_part() full img for WP main loop ": {
     "scope": "php, html",
-    "prefix": "gtfi",
+    "prefix": "get_template",
+    "body": [
+      "get_template_part('template-parts/components/${1}', null, [",
+      "'${3:title}' => get_the_title(),",
+      "'${4:text}' => the_excerpt(),",
+      "'${5:tag-img}' => get_the_post_thumbnail(),",
+      "'${6:link_read_more_href}' => get_the_permalink(),",
+      "]);",
+      "${0}"
+    ],
+    "description": "get_template_part() ful img"
+  },
+
+  "card block by get_template_part()": {
+    "scope": "php, html",
+    "prefix": "card_gtp",
+    "body": [
+      "<article class=\"rmbt-${1}-article\">",
+        "<header>",
+            "<h3> <?php echo \\$args['${2:title}'] ?></h3>",
+        "</header>",
+        "<div class=\"rmbt-${1}-article__body\">",
+            "<div class=\"wrap-img rmbt-${1}-article__img\">",
+              "<?php echo \\$args['${3:tag-img}'] ?>",
+            "</div>",
+            "<div class=\"rmbt-${1}-article__text\">",
+              "<?php echo \\$args['${5:text}'] ?>",
+            "</div>",
+        "</div>",
+        "<footer>",
+            "<a href=\"<?php echo \\$args['${6:link_read_more_href}'] ?>\">",
+              "read more",
+              "<svg>",
+                  "<use xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#${7}\"></use>",
+              "</svg>",
+            "</a>",
+        "</footer>",
+      "</article>",
+    ],
+    "description": "card block"
+  },
+
+
+
+
+
+
+
+  "redux get_template_part() full img": {
+    "scope": "php, html",
+    "prefix": "redux get_template",
     "body": [
       "<?php get_template_part('template-parts/components/${1}', null, [",
       "'${3:title}' => rmbt_get_redux_field('rmbt-${1}_article-title-${2}'),",
@@ -324,9 +374,9 @@
     "description": "get_template_part() ful img"
   },
 
-  "card block by get_template_part()": {
+  "redux card block by get_template_part()": {
     "scope": "php, html",
-    "prefix": "cb_gtp",
+    "prefix": "card_gtp",
     "body": [
       "<article class=\"rmbt-${1}-article\">",
         "<header>",
@@ -441,6 +491,15 @@
     ],
     "description": "rmbt_redux_img()"
   },
+    
+  "redux_field()": {
+    "scope": "php, html",
+    "prefix": "redux_field()",
+    "body": [
+      "<?php echo rmbt_get_redux_field('${1}', ${2:1})?>",
+    ],
+    "description": "menu_wp"
+  },
   
   "wrap img from redux": {
     "scope": "php, html",
@@ -467,15 +526,6 @@
           ")",
         ");",
       "} ?>",
-    ],
-    "description": "menu_wp"
-  },
-  
-  "redux_field()": {
-    "scope": "php, html",
-    "prefix": "redux_field()",
-    "body": [
-      "<?php echo rmbt_get_redux_field('${1}', ${2:1})?>",
     ],
     "description": "menu_wp"
   },
