@@ -315,7 +315,7 @@
     "body": [
       "get_template_part('template-parts/components/${1}', null, [",
       "'${3:title}' => get_the_title(),",
-      "'${4:text}' => the_excerpt(),",
+      "'${4:text}' => get_the_excerpt(),",
       "'${5:tag-img}' => get_the_post_thumbnail(),",
       "'${6:link_read_more_href}' => get_the_permalink(),",
       "]);",
