@@ -255,6 +255,15 @@
     ],
     "description": "font family"
   },
+
+  "flex: 0 1 auto;": {
+    "scope": "less, css, sass",
+    "prefix": "flex",
+    "body": [
+      "flex: ${1:grow} ${2:shrink} ${3:basis};",
+    ],
+    "description": "document.createElement()"
+  },
   
   "get_template_part() simple": {
     "scope": "php, html",
@@ -276,7 +285,7 @@
       "<div class=\"rmbt-full-width rmbt-${1}-full-width\">",
       "<section class=\"rmbt-container rmbt-${1}\">",
       "<h2><?php echo rmbt_get_redux_field('rmbt-${1}_section-title') ?></h2>",
-      "<!-- <?php // get_template_part('template-parts/components/section-title', null, ['title' => rmbt_get_redux_field('rmbt-${1}_section-title')]); ?> -->",
+      "<!-- <?php // get_template_part('template-parts/components/title', 'page', ['title' => rmbt_get_redux_field('rmbt-${1}_section-title')]); ?> -->",
       "<p><?php echo rmbt_get_redux_field('rmbt-${1}_section-text') ?></p>",
       "<div class=\"rmbt-${1}__row\">",
       "<article class=\"rmbt-${1}__col\">",
@@ -307,7 +316,6 @@
     ],
     "description": "section"
   },
-
 
   "get_template_part() full img for WP main loop ": {
     "scope": "php, html",
@@ -353,12 +361,6 @@
     "description": "card block"
   },
 
-
-
-
-
-
-
   "redux get_template_part() full img": {
     "scope": "php, html",
     "prefix": "redux get_template",
@@ -376,7 +378,7 @@
 
   "redux card block by get_template_part()": {
     "scope": "php, html",
-    "prefix": "card_gtp",
+    "prefix": "redux card_gtp",
     "body": [
       "<article class=\"rmbt-${1}-article\">",
         "<header>",
@@ -535,15 +537,6 @@
     "prefix": "dc",
     "body": [
       "document.createElement('${1}');",
-    ],
-    "description": "document.createElement()"
-  },
-  
-  "flex: 0 1 auto;": {
-    "scope": "less, css, sass",
-    "prefix": "flex",
-    "body": [
-      "flex: ${1:grow} ${2:shrink} ${3:basis};",
     ],
     "description": "document.createElement()"
   },
