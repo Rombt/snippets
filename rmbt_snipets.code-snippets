@@ -68,7 +68,7 @@
     ],
     "description": "adds tags svg and use to html page"
   },
-  "dinamic adaptive": {
+  "dynamic adaptive": {
     "scope": "",
     "prefix": "da",
     "body": ["data-da=\".${1:target block name}, 768\""],
