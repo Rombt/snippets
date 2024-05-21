@@ -30,18 +30,21 @@
     "body": ["'$1'=>'$2',", "$3"],
     "description": "выводит заготовку под элемент массива"
   },
+
   "php block": {
     "scope": "php, plaintext, html",
     "prefix": "php",
     "body": ["<?php $1 ?>", "$2"],
     "description": "вставка блока php"
   },
+
   "esc_html": {
     "scope": "php, plaintext, html",
     "prefix": "esc",
     "body": ["esc_html( $1 );", "$2"],
     "description": "esc_html()"
   },
+
   "svg_wp": {
     "scope": "php, plaintext, html",
     "prefix": "svg",
@@ -55,6 +58,7 @@
     ],
     "description": "adds tags svg and use to php page for WP"
   },
+
   "svg_html": {
     "scope": "php, plaintext, html",
     "prefix": "svg",
@@ -68,12 +72,14 @@
     ],
     "description": "adds tags svg and use to html page"
   },
+
   "dynamic adaptive": {
     "scope": "",
     "prefix": "da",
     "body": ["data-da=\".${1:target block name}, 768\""],
     "description": "adds tags svg and use to html page"
   },
+
   "popup": {
     "scope": "",
     "prefix": "ppp",
@@ -95,6 +101,7 @@
     ],
     "description": "adds structure of popUp window"
   },
+
   "wrap-img": {
     "scope": "php, plaintext, html",
     "prefix": "wrap-img",
@@ -105,42 +112,49 @@
     ],
     "description": " ... "
   },
+
   "CSS border": {
     "scope": "css, less",
     "prefix": "bd",
     "body": ["border: ${1:1}px solid #${2:0515fd};", "$3"],
     "description": "устанавливает бордюр блока"
   },
+
   "Adaptive prop mixin": {
     "scope": "css, less ",
     "prefix": "ap",
     "body": [".adaptive-prop(${1:width}, ${2:max}, ${3:min});", "$4"],
     "description": "выводит строку миксина адаптивного шрифта"
   },
+
   "Property hover support": {
     "scope": "css, less",
     "prefix": "hs",
     "body": ["@media (any-hover: hover){\n$1:hover {\n\t$2\n}}", "$3"],
     "description": "выводит строку медиа запроса для устройств которые поддерживают свойство hover"
   },
+
   "Property hover not support": {
     "scope": "css, less",
     "prefix": "hns",
     "body": ["@media (any-hover: none){\n$1:hover {\n\t$2\n}}", "$3"],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
+
   "padding 0": {
     "scope": "css, less",
     "prefix": "p0",
     "body": ["padding: ${1:10}px ${2:10}px ${3:10}px ${4:10}px; ", "$5"],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
+
   "margin 0": {
     "scope": "css, less",
     "prefix": "m0",
     "body": ["margin: ${1:0}px ${2:0}px ${3:0}px ${4:0}px; ", "$5"],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
+
   "img height by padding": {
     "scope": "css, less",
     "prefix": "pimg",
@@ -150,6 +164,7 @@
     ],
     "description": "выводит строку медиа запроса для устройств которые не поддерживают свойство hover"
   },
+
   "row-flex()": {
     "scope": "less, sass",
     "prefix": ".rf",
@@ -170,6 +185,25 @@
     "body": [".size(${1});"],
     "description": ".size();"
   },
+
+  ".to( ,{})": {
+    "scope": "less, sass",
+    "prefix": ".to(",
+    "body": [
+      ".to(${1}px,{",
+      "${2}",
+      "});",
+    ],
+    "description": ".size();"
+  },
+
+
+
+
+
+
+
+
   "burger menu": {
     "scope": "php, html",
     "prefix": "bm",
