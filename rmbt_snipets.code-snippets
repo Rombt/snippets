@@ -201,7 +201,14 @@
 
 
 
-
+	"spoilers": {
+		"scope": "html",
+		"prefix": "spoilers",
+		"body": [
+			"<div data-spoilers class=\"spoilers\">\n\t<div class=\"spoilers__item\">\n\t\t<button type=\"button\" data-spoller class=\"spoilers__title\">Заголовок спойлера</button>\n\t\t<div class=\"spoilers__body\">Контент спойлера</div>\n\t</div>\n</div>"
+		],
+		"description": "Добавляет базовый HTML код спойлеров"
+	},
 
 
   "burger menu": {
