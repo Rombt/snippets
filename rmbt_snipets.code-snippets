@@ -50,9 +50,7 @@
     "prefix": "svg",
     "body": [
       "<svg>",
-      "<use",
-      "xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#$1\">",
-      "</use>",
+      "<use xlink:href=\"<?php echo get_template_directory_uri() ?>/assets/img/icons/sprite.svg#$1\"></use>",
       "</svg>",
       "$2"
     ],
